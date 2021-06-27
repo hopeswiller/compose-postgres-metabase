@@ -1,0 +1,14 @@
+version: '3.7'
+
+# All available services
+services:
+  metabase:
+    container_name: metabase_app
+    restart: always
+    image: metabase/metabase:<version>
+    env_file:
+      - ./config/metabase_database.env
+    volumes:
+      - /home/metabase-data/metabase.db:/metabase.db
+    ports:
+      - "3000:3000"
